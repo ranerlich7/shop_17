@@ -1,0 +1,11 @@
+.mytable {
+  text-align: center;
+  color: blue;
+  background-color: aqua;
+}
+.board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  
