@@ -33,7 +33,7 @@ function ProductList() {
               <div class='panel panel-primary'>
                 <div class='panel-heading'>{product.name}</div>
                 <div class='panel-body'>
-                  <img src={product.image} class='img-responsive' style={{ width: '100%' }} alt={product.name} />
+                  <img src={product.image} className='product-image img-responsive' style={{ width: '100%' }} alt={product.name} />
                 </div>
                 <div class='panel-footer'>${product.price.toFixed(2)}</div>
                 <button className='fetch-button' onClick={() => addToCart(product)}>

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CartCotext from '../CartContext'
 
 function Nav() {
+  const { cart, setCart} = useContext(CartCotext)
   return (
     <nav class='navbar navbar-inverse'>
       <div class='container-fluid'>
@@ -40,7 +42,7 @@ function Nav() {
             </li>
             <li>
               <a href='http://www.google.com'>
-                <span class='glyphicon glyphicon-shopping-cart'></span> Cart
+                <span class='glyphicon glyphicon-shopping-cart'></span> Cart : {cart.length}
               </a>
             </li>
           </ul>
