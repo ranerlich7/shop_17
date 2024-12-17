@@ -8,10 +8,11 @@ function Products() {
 
   useEffect(() => {
     getProducts()
+    console.log('starting')
   }, [])
 
   function getProducts() {
-    axios.get('http://localhost:3006/products').then((response) => {
+    axios.get('http://localhost:3005/products').then((response) => {
       setProducts(response.data)
     })
   }
