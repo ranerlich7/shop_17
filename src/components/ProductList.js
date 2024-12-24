@@ -1,10 +1,12 @@
 import axios from "axios"
 import React, { useContext, useEffect, useState } from "react"
 import CartCotext from "../CartContext"
+import { useNavigate } from "react-router-dom"
 
 function ProductList() {
   const [products, setProducts] = useState([])
   const { cart, setCart } = useContext(CartCotext)
+  const navigate = useNavigate() // Initialize navigate
 
   useEffect(() => {
     getProducts()
@@ -22,6 +24,7 @@ function ProductList() {
     if (!existingProduct) {
       setCart([...cart, product])
       console.log("cart is", cart)
+      navigate("/cart")
     }
   }
   return (

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import CartCotext from "../CartContext"
 import Total from "./Total"
+import { Link } from "react-router-dom"
 
 function Cart() {
   const { cart, setCart } = useContext(CartCotext)
@@ -25,6 +26,9 @@ function Cart() {
         <p className="cart-empty">Your cart is empty</p>
       )}
       <Total />
+      <Link to="/">
+        <button className="btn btn-success">Continue shopping</button>
+      </Link>
     </div>
   )
 }
