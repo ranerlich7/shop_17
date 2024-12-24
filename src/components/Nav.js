@@ -33,9 +33,9 @@ function Nav() {
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="http://www.google.com">
+              <Link to="/login">
                 <span class="glyphicon glyphicon-user"></span> Your Account
-              </a>
+              </Link>
             </li>
             <li>
               <Link to="/cart">
