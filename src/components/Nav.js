@@ -38,7 +38,7 @@ function Nav() {
             <li>
               <Link to="/login">
                 <span class="glyphicon glyphicon-user"></span>
-                {login ? `hello ${login.user_id}` : "Your Account"}
+                {login ? `hello ${login.username}` : "Your Account"}
               </Link>
             </li>
             <li>
