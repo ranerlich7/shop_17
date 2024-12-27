@@ -1,5 +1,5 @@
 import "./App.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Footer from "./components/Footer"
 import Jumbotron from "./components/Jumbotron"
 import Nav from "./components/Nav"
@@ -10,11 +10,16 @@ import LoginContext from "./LoginContext"
 import Total from "./components/Total"
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 import Login from "./components/Login"
+import { jwtDecode } from "jwt-decode"
 
 function App() {
   const [cart, setCart] = useState([])
   const [login, setLogin] = useState([])
   const navigate = useNavigate() // Initialize navigate
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    token && setLogin(jwtDecode(token))
+  }, [])
 
   return (
     <>

@@ -6,7 +6,10 @@ import LoginContext from "../LoginContext"
 function Nav() {
   const { cart, setCart } = useContext(CartCotext)
   const { login, setLogin } = useContext(LoginContext)
-
+  function logout() {
+    setLogin(null)
+    localStorage.removeItem("token")
+  }
   return (
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -35,11 +38,17 @@ function Nav() {
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            {login?.is_admin && (
+              <li>
+                <Link to="/login">Admin</Link>
+              </li>
+            )}
             <li>
               <Link to="/login">
                 <span class="glyphicon glyphicon-user"></span>
                 {login ? `hello ${login.username}` : "Your Account"}
               </Link>
+              {login && <button onClick={logout}>logout</button>}
             </li>
             <li>
               <Link to="/cart">
