@@ -1,9 +1,12 @@
 import React, { useContext } from "react"
 import CartCotext from "../CartContext"
 import { Link } from "react-router-dom"
+import LoginContext from "../LoginContext"
 
 function Nav() {
   const { cart, setCart } = useContext(CartCotext)
+  const { login, setLogin } = useContext(LoginContext)
+
   return (
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -34,7 +37,8 @@ function Nav() {
           <ul class="nav navbar-nav navbar-right">
             <li>
               <Link to="/login">
-                <span class="glyphicon glyphicon-user"></span> Your Account
+                <span class="glyphicon glyphicon-user"></span>
+                {login ? `hello ${login.user_id}` : "Your Account"}
               </Link>
             </li>
             <li>
