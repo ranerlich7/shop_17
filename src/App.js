@@ -7,15 +7,18 @@ import Cart from "./components/Cart"
 import ProductList from "./components/ProductList"
 import CartCotext from "./CartContext"
 import Total from "./components/Total"
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
+import LoginContext from "./LoginContext"
 
 function App() {
   const [cart, setCart] = useState([])
-  const navigate = useNavigate() // Initialize navigate
+  const [loginToken, setLoginToken] = useState([])
 
   return (
     <>
+      <LoginContext.Provider value={{ loginToken, setLoginToken }}>
+
       <CartCotext.Provider value={{ cart, setCart }}>
         <Jumbotron />
         <Nav />
@@ -36,6 +39,7 @@ function App() {
         <Total />
         <Footer />
       </CartCotext.Provider>
+      </LoginContext.Provider>
     </>
   )
 }

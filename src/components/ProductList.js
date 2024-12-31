@@ -7,6 +7,7 @@ function ProductList() {
   const [products, setProducts] = useState([])
   const { cart, setCart } = useContext(CartCotext)
   const navigate = useNavigate() // Initialize navigate
+  const HOST = process.env.REACT_APP_API_HOST
 
   useEffect(() => {
     getProducts()
@@ -14,7 +15,7 @@ function ProductList() {
   }, [])
 
   function getProducts() {
-    axios.get("http://localhost:8000/products/").then((response) => {
+    axios.get(`${HOST}/products/`).then((response) => {
       setProducts(response.data)
     })
   }

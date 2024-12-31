@@ -4,7 +4,7 @@ import Total from "./Total"
 import { Link } from "react-router-dom"
 
 function Cart() {
-  const { cart, setCart } = useContext(CartCotext)
+  const { cart, setCart } = useContext(CartCotext) // eslint-disable-line no-unused-vars
   return (
     <div className="cart-container">
       <h1 className="cart-title">Cart:</h1>
