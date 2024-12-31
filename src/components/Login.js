@@ -18,7 +18,7 @@ function Login() {
       password: password,
     }
     axios
-      .post("http://127.0.0.1:8000/login/", loginData)
+      .post("https://shop17-back.onrender.com/login/", loginData)
       .then((response) => {
         console.log(response.data.access)
         const token = jwtDecode(response.data.access)

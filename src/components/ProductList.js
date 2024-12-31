@@ -14,7 +14,7 @@ function ProductList() {
   }, [])
 
   function getProducts() {
-    axios.get("http://localhost:8000/products/").then((response) => {
+    axios.get("https://shop17-back.onrender.com/products/").then((response) => {
       setProducts(response.data)
     })
   }
