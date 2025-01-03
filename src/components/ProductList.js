@@ -47,7 +47,7 @@ function ProductList() {
           {products.map((product, index) => (
             <div key={index} class="col-sm-4">
               <div class="panel panel-primary">
-                <div class="panel-heading">{product.name}</div>
+                <div class="panel-heading">{product.name} !!!</div>
                 <div class="panel-body">
                   <img
                     src={product.image}
