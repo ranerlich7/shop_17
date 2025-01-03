@@ -1,15 +1,13 @@
-import "./App.css"
-import { useEffect, useState } from "react"
-import Footer from "./components/Footer"
-import Jumbotron from "./components/Jumbotron"
-import Nav from "./components/Nav"
-import Cart from "./components/Cart"
+import React, { useEffect, useState } from "react"
+import Footer from "./components2/Footer"
+import SideNav from "./components2/SideNav"
+import Main from "./components2/Main"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import ProductList from "./components/ProductList"
-import CartCotext from "./CartContext"
-import LoginContext from "./LoginContext"
-import Total from "./components/Total"
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+import Cart from "./components/Cart"
 import Login from "./components/Login"
+import CartContext from "./CartContext"
+import LoginContext from "./LoginContext"
 import { jwtDecode } from "jwt-decode"
 
 function App() {
@@ -23,28 +21,22 @@ function App() {
 
   return (
     <>
-      <CartCotext.Provider value={{ cart, setCart }}>
+      <CartContext.Provider value={{ cart, setCart }}>
         <LoginContext.Provider value={{ login, setLogin }}>
-          <Jumbotron />
-          <Nav />
-          <Routes>
-            <Route path="/" element={<ProductList />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/about"
-              element={
-                <>
-                  <h1>This is the about page</h1>
-                </>
-              }
-            />
-          </Routes>
-
-          <Total />
-          <Footer />
+          <div class="container-fluid">
+            <div class="row content">
+              <SideNav />
+              <Routes>
+                <Route path="/" element={<ProductList />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/main" element={<Main />} />
+              </Routes>
+            </div>
+          </div>
         </LoginContext.Provider>
-      </CartCotext.Provider>
+      </CartContext.Provider>
+
+      <Footer />
     </>
   )
 }

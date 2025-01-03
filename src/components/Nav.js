@@ -44,6 +44,9 @@ function Nav() {
               </li>
             )}
             <li>
+              <Link to="/register">Register</Link>
+            </li>
+            <li>
               <Link to="/login">
                 <span class="glyphicon glyphicon-user"></span>
                 {login ? `hello ${login.username}` : "Your Account"}
