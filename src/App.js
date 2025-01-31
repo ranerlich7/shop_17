@@ -11,6 +11,7 @@ import Total from "./components/Total"
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 import Login from "./components/Login"
 import { jwtDecode } from "jwt-decode"
+import { Container } from "@mui/material"
 
 function App() {
   const [cart, setCart] = useState([])
@@ -27,19 +28,21 @@ function App() {
         <LoginContext.Provider value={{ login, setLogin }}>
           <Jumbotron />
           <Nav />
-          <Routes>
-            <Route path="/" element={<ProductList />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/about"
-              element={
-                <>
-                  <h1>This is the about page</h1>
-                </>
-              }
-            />
-          </Routes>
+          <Container>
+            <Routes>
+              <Route path="/" element={<ProductList />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/about"
+                element={
+                  <>
+                    <h1>This is the about page</h1>
+                  </>
+                }
+              />
+            </Routes>
+          </Container>
 
           <Total />
           <Footer />

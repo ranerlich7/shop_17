@@ -2,6 +2,11 @@ import React, { useContext } from "react"
 import CartCotext from "../CartContext"
 import { Link } from "react-router-dom"
 import LoginContext from "../LoginContext"
+import { styled } from "@mui/material/styles"
+import IconButton from "@mui/material/IconButton"
+import Badge, { badgeClasses } from "@mui/material/Badge"
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined"
+import CartDrawer from "./CartDrawer"
 
 function Nav() {
   const { cart, setCart } = useContext(CartCotext)
@@ -10,6 +15,14 @@ function Nav() {
     setLogin(null)
     localStorage.removeItem("token")
   }
+
+  const CartBadge = styled(Badge)`
+    & .${badgeClasses.badge} {
+      top: -12px;
+      right: -6px;
+    }
+  `
+
   return (
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -52,9 +65,18 @@ function Nav() {
             </li>
             <li>
               <Link to="/cart">
-                <span class="glyphicon glyphicon-shopping-cart"></span> Cart :{" "}
-                {cart.length}
+                <IconButton>
+                  <ShoppingCartIcon color="success" fontSize="medium" />
+                  <CartBadge
+                    badgeContent={cart.length}
+                    color="primary"
+                    overlap="circular"
+                  />
+                </IconButton>
               </Link>
+            </li>
+            <li>
+              <CartDrawer />
             </li>
           </ul>
         </div>
